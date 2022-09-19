@@ -11,4 +11,9 @@ trait HasUuid
     {
         static::creating(fn (Model $model) => $model->uuid = Str::uuid());
     }
+
+    public function getRouteKeyName(): string
+    {
+        return 'uuid';
+    }
 }
