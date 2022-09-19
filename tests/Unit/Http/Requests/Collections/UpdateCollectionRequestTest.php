@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Requests\UpdateCollectionRequest;
+
 use function PHPUnit\Framework\assertSame;
 
 test('it has the correct validation rules', function () {

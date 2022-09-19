@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Collection;
+
 use function Pest\Laravel\assertDatabaseHas;
 
 test('it can update a collection', function () {
