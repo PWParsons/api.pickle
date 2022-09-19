@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
+use Tests\TestCase;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -11,7 +14,7 @@
 |
 */
 
-uses(Tests\TestCase::class)->in('Feature');
+uses(TestCase::class, LazilyRefreshDatabase::class)->in(__DIR__);
 
 /*
 |--------------------------------------------------------------------------

@@ -1,19 +1,16 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Actions\Collections\CreateCollection;
+use App\Actions\Collections\DeleteCollection;
+use App\Actions\Collections\GetAllCollections;
+use App\Actions\Collections\GetCollection;
+use App\Actions\Collections\UpdateCollection;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('collections')->name('collections.')->group(function () {
+    Route::get('/', GetAllCollections::class)->name('index');
+    Route::post('/', CreateCollection::class)->name('store');
+    Route::get('{collection}', GetCollection::class)->name('show');
+    Route::patch('{collection}', UpdateCollection::class)->name('update');
+    Route::delete('{collection}', DeleteCollection::class)->name('destroy');
 });
